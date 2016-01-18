@@ -24,6 +24,20 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.serve_static_files = true
 
+  config.action_mailer.default_url_options = { host: 'blog.centricnotes.com',
+                                             protocol: 'http'
+                                           }
+  config.action_mailer.smtp_settings = {
+    tls: true,
+    address: 'secure.emailsrvr.com',
+    port: 465,
+    authentication: :login,
+    enable_starttls_auto: true,
+    user_name: 'support@centricnotes.com',
+    password: 'thepowerofsmile'
+  }
+
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
